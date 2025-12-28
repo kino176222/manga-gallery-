@@ -1,0 +1,293 @@
+:root {
+  /* Obsidian Theme */
+  --obsidian-bg: #111111;
+  --obsidian-accent: #9b59b6;
+  /* Amethyst */
+  --obsidian-text: #f0f0f0;
+
+  /* Cursor Theme */
+  --cursor-bg: #ffffff;
+  --cursor-accent: #ff4500;
+  /* Orange Red */
+  --cursor-highlight: #ffbf00;
+  /* Amber */
+  --cursor-text: #222222;
+
+  /* Common */
+  --font-main: 'Helvetica Neue', Arial, sans-serif;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 32px;
+  --spacing-xl: 64px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--obsidian-bg);
+  color: var(--obsidian-text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+.btn {
+  display: inline-block;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--cursor-accent);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 69, 0, 0.4);
+}
+
+/* Sections */
+section {
+  padding: var(--spacing-xl) 0;
+}
+
+/* Hero Section */
+.hero {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(17, 17, 17, 0.4), rgba(17, 17, 17, 0.7)), url('/images/hero_bg.png');
+  background-size: cover;
+  background-position: center 20%;
+  /* Adjusted to focus on faces */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  /* Responsive font size */
+  margin-bottom: var(--spacing-md);
+  background: linear-gradient(to right, var(--obsidian-accent), var(--cursor-highlight));
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: fadeIn 1.5s ease-out;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  /* Improve readability */
+}
+
+.hero p {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  max-width: 800px;
+  margin: 0 auto var(--spacing-lg);
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: 500;
+  line-height: 1.8;
+}
+
+/* Responsive Text Wrap Helper */
+.hero p span {
+  display: inline-block;
+  /* Helps keep phrases together */
+}
+
+/* Glassmorphism Button */
+.btn-primary {
+  background: rgba(255, 69, 0, 0.8);
+  backdrop-filter: blur(5px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 15px rgba(255, 69, 0, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 69, 0, 1);
+  box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+}
+
+/* Character Section */
+.characters {
+  background-color: #1a1a1a;
+  padding: var(--spacing-xl) 0;
+}
+
+.char-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-xl);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.char-card {
+  background: transparent;
+  text-align: center;
+  border: none;
+}
+
+.char-image-container {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: var(--spacing-md);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  border: 4px solid #333;
+  transition: transform 0.3s;
+}
+
+.char-card:hover .char-image-container {
+  transform: translateY(-5px);
+  border-color: var(--card-accent, #555);
+}
+
+.char-card.obsidian {
+  --card-accent: var(--obsidian-accent);
+}
+
+.char-card.cursor {
+  --card-accent: var(--cursor-accent);
+}
+
+.char-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.char-info h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+}
+
+.char-info .role {
+  display: block;
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.1em;
+}
+
+/* Works Section */
+.works {
+  background-color: var(--obsidian-bg);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  justify-content: center;
+}
+
+.work-card {
+  background: #222;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.work-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(155, 89, 182, 0.2);
+}
+
+.work-thumb {
+  width: 100%;
+  height: 180px;
+  background: #111;
+  overflow: hidden;
+  position: relative;
+}
+
+.work-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.work-card:hover .work-thumb img {
+  transform: scale(1.05);
+}
+
+.work-content {
+  padding: var(--spacing-md);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.work-content h4 {
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.1rem;
+  line-height: 1.4;
+  height: 3em;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .char-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    /* Adjust background for mobile to show both characters better */
+    background-position: center top;
+    background-size: 150%;
+    /* Zoom in slightly less or more depending on image */
+  }
+
+  /* Specific adjustment: try to fit both faces */
+  /* Since standard cover cuts off sides, we might need a different approach or accepting one char focus. 
+     But let's try 'contain' style or specific positioning */
+  .hero {
+    background-size: cover;
+    background-position: 60% top;
+    /* Center Obsidian Face properly */
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}
